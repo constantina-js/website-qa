@@ -2,8 +2,8 @@ title: Constantina "Connie" Scoullis
 email: scoullisconstantina@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Connie Scoullis's website
-baseurl: "/constantina-js.github.io" # the subpath of your site, e.g. /blog
-url: "https:///constantina-js.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https:///constantina.info" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  constantina-js
 
 # Build settings
