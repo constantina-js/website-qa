@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content='Constantina "Connie" Scoullis'
+        />
+        <link rel="canonical" href="http://constantina-js.github.io" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content='{{ page.title }}' />
+        <meta property="og:description" content='Constantina "Connie" Scoullis' />
+        <meta property="og:image" content="img/0.png" />
+        <meta property="og:url" content="http://constantina-js.github.io" />
+        <meta property="og:site_name" content='Constantina "Connie" Scoullis' />
+        <script>
+            window.SITE_BASEURL = "{{ site.baseurl }}";
+        </script>
+        <script src="{{ site.baseurl }}/assets/js/index.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/blog.js"></script>
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/index.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+        <title>{{ page.tag }} | Constantina "Connie" Scoullis</title>
+    </head>
+    <body>
+    
+    {% include header.html %}
+
+    <div class="blog-container">
+        <div class="blog-card-container">
+
+{% assign current_tag = page.tag | append: "" %}
+          <div class="tag-heading">
+            <h1>tagged: {{ current_tag}}</h1>
+          </div>
+
+{% for post in site.posts %}
+  {% if post.tags and post.tags contains current_tag %}
+    <article class="blog-card">
+      <a href="{{ post.url | relative_url }}">
+        <h2>{{ post.title }}</h2>
+      </a>
+      <p>{{ post.excerpt }}</p>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+
+      <div class="post-tags">
+        {% for tag in post.tags %}
+          {% assign tag_string = tag | append: "" %}
+          <a href="{{ '/tag/' | append: tag_string | relative_url }}">
+            <h3 class="tag">#{{ tag_string }}</h3>
+          </a>
+        {% endfor %}
+      </div>
+    </article>
+    <div class="break"></div>
+  {% endif %}
+{% endfor %}
+
+        </div>
+    </div>
+
+    {% include footer.html %}
+
+    </body>
+</html>

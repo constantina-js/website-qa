@@ -1,0 +1,408 @@
+/* === Base & Variables === */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #FBF7F2;
+  --text: #2B2B2B;
+  --brand: #6B5CFF;
+  --accent: #F4B860;
+  --sage: #8FAF9A;
+  --line: #E6E1DA;
+  --tag-background: #E6E1DA;
+  --tag-color: #6B5CFF;
+  --tag-background-hover:#F4B860;
+  --tag-color-hover:#6B5CFF;
+}
+
+[data-theme="dark"] {
+  --bg: #0F1020;
+  --text: #ECEBFF;
+  --brand: #9A90FF;
+  --accent: #F7C97D;
+  --sage: #9FC8AE;
+  --line: #26274D;
+  --tag-background: #26274D;
+  --tag-color: #6B5CFF;
+}
+
+/* === Fonts === */
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* === Body and Typography === */
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.03em;
+}
+
+p {
+  max-width: 42em;
+  margin: 1.25rem auto;
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.menu li, .post-tags h3 {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* === Layout Containers === */
+
+.body-container, .blog-container {
+  width: 700px;
+  margin: 0 auto;
+  flex: 1; 
+}
+
+.blog-container {
+  width: 540px;
+}
+
+.blog-card-container {
+  margin-top: 8rem;
+  text-align: left;
+}
+
+/* === Header === */
+
+
+header {
+  position: relative;
+  margin: 0 auto;
+  width: 740px;
+  min-height: 320px;
+  padding: 2.5rem;
+}
+
+header .header-section {
+  margin: 5rem 0 2.5rem;
+  display: inline-block;
+  align-items: center;
+}
+
+.header-section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header-section #propic-area {
+  float: left;
+  margin-right: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.header-section #header-text {
+  float: right;
+  margin-left: 2.5rem;
+  text-align: left;
+  padding-top: 1rem;
+}
+
+.header-section img {
+  width: auto;
+  height: 200px;
+  border-radius: 100%;
+}
+
+/* === Nav === */
+
+.menu {
+  width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu ul, .blog-nav ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li, .blog-nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  font-size: 24px;
+}
+
+/* === Dark/Light Mode Toggle === */
+
+#light-dark-mode-switch {
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--line);
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--text);
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--line);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--line);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.slider svg {
+  width: 20px; 
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.3s, left 0.3s;
+  position: absolute;
+  left: 7px; 
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--line)
+}
+
+
+input:checked + .slider svg {
+  left: calc(100% - 27px); /* 100% minus icon width + padding */
+}
+
+/* === Sections === */
+
+#about-me, #contact-info, .blog-post {
+  margin: 0 auto;
+  width: 100%;
+  align-items: center;
+}
+
+.tag-heading {
+  margin: 5rem auto;
+}
+
+.blog-post {
+  text-align: justify;
+  margin-top: 8rem;
+}
+
+#about-me p, #contact-info p, .blog-post p {
+  font-size: 20px;
+  text-align: justify;
+}
+
+.break {
+  width: 75%;
+  border: 1px solid var(--line);
+  margin: 3.5rem auto;
+}
+
+.post-tags h3 {
+  display: inline-block;
+}
+
+.tag {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+
+}
+
+.tag:hover {
+  background-color: var(--tag-background-hover);
+  color: var(--tag-color-hover);  
+}
+
+.tag a:hover {
+    text-decoration: none;
+}
+/* === Footer === */
+
+footer {
+  width: 100%;
+  clear: both;
+  min-height: 50px;
+  align-items: center;
+  position: relative;
+  padding-top: 5rem;
+}
+
+/* === Responsiveness === */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    display: block;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    padding: 0 1rem;
+  }
+
+  .body-container, .blog-container {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .blog-card-container {
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: justify;
+  }
+
+
+  header {
+    width: 95%;
+    padding: 2rem;
+  }
+
+  .header-section {
+    text-align: center;
+  }
+
+  .menu {
+    width: 95%;
+  }
+
+  .menu ul, .blog-nav ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu ul li, .blog-nav ul li {
+    list-style-type: none;
+    display: block;
+    font-size: 24px;
+  }
+  
+  .header-section #propic-area {
+    float: none;
+    margin: 0 auto;
+  }
+
+  .header-section #header-text {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  #light-dark-mode-switch {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .tag-heading {
+    margin: 0 auto;
+  }
+
+}

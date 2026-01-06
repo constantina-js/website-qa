@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content='Constantina "Connie" Scoullis'
+        />
+        <link rel="canonical" href="http://constantina-js.github.io" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content='{{ page.title }}' />
+        <meta property="og:description" content='Constantina "Connie" Scoullis' />
+        <meta property="og:image" content="img/0.png" />
+        <meta property="og:url" content="http://constantina-js.github.io" />
+        <meta property="og:site_name" content='Constantina "Connie" Scoullis' />
+        <script>
+            window.SITE_BASEURL = "{{ site.baseurl }}";
+        </script>
+        <script src="{{ site.baseurl }}/assets/js/index.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/blog.js"></script>
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/index.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+
+        {% include header.html %}
+
+        <div class="body-container">
+            <section id="contact-info">
+                <p><strong>Status:</strong> Open to work!</p>
+                <p>If you are interested in working together or would just like to reach out, please email me at <a href="@mailto:scoullisconstantina@gmail.com">scoullisconstantina@gmail.com</a>. </p>
+            </section>
+        </div>
+    </body>
+
+    {% include footer.html %}
+
+</html>
